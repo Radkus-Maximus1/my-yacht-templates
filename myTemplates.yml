@@ -5,8 +5,12 @@ name: palworld-server
 description: This is a description.
 logo: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/transmission-icon.png
 image: thijsvanloef/palworld-server-docker:latest
-restart_policy: unless-stopped
+note: This is a note
+categories:
+- Other
+- Tools
 platform: linux
+restart_policy: unless-stopped
 ports:
 - 8211:8211/udp
 - 27015:27015/udp
