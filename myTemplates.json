@@ -1,0 +1,91 @@
+{
+  "type": 1,
+  "title": "Palworld",
+  "name": "palworld-server",
+  "description": "This is a description.",
+  "image": "thijsvanloef/palworld-server-docker:latest",
+  "restart_policy": "unless-stopped",
+  "platform": "linux",
+  "ports": [
+    "8211:8211/udp",
+    "27015:27015/udp"
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "default": 1000
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "default": 1000
+    },
+    {
+      "name": "PORT",
+      "label": "PORT",
+      "default": 8211
+    },
+    {
+      "name": "PLAYERS",
+      "label": "PLAYERS",
+      "default": 16
+    },
+    {
+      "name": "SERVER_PASSWORD",
+      "label": "SERVER_PASSWORD",
+      "default": "worldofpals"
+    },
+    {
+      "name": "MULTITHREADING",
+      "label": "MULTITHREADING",
+      "default": true
+    },
+    {
+      "name": "RCON_ENABLED",
+      "label": "RCON_ENABLED",
+      "default": true
+    },
+    {
+      "name": "RCON_PORT",
+      "label": "RCON_PORT",
+      "default": 25575
+    },
+    {
+      "name": "TZ",
+      "label": "TZ",
+      "default": "UTC"
+    },
+    {
+      "name": "ADMIN_PASSWORD",
+      "label": "ADMIN_PASSWORD",
+      "default": "adminPasswordHere"
+    },
+    {
+      "name": "COMMUNITY",
+      "label": "COMMUNITY",
+      "default": false
+    },
+    {
+      "name": "SERVER_NAME",
+      "label": "SERVER_NAME",
+      "default": "palworld-server-docker by Thijs van Loef"
+    },
+    {
+      "name": "SERVER_DESCRIPTION",
+      "label": "SERVER_DESCRIPTION",
+      "default": "palworld-server-docker by Thijs van Loef"
+    },
+    {
+      "name": "ALLOW_CONNECT_PLATFORM",
+      "label": "ALLOW_CONNECT_PLATFORM",
+      "default": "Steam"
+    }
+  ],
+  "volumes": [
+    {
+      "container": "./palworld",
+      "bind": "!palworld"
+    }
+  ]
+}
