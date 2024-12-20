@@ -13,10 +13,10 @@ ports:
 env:
 - name: PUID
   label: PUID
-  default: '1000'
+  default: 1000
 - name: PGID
   label: PGID
-  default: '1000'
+  default: 1000
 - name: PORT
   label: PORT
   default: 8211
