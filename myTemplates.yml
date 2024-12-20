@@ -3,13 +3,20 @@ type: 1
 title: Palworld
 name: palworld-server
 description: This is a description.
+logo: https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/transmission-icon.png
 image: thijsvanloef/palworld-server-docker:latest
 restart_policy: unless-stopped
 platform: linux
 ports:
 - 8211:8211/udp
 - 27015:27015/udp
-# - 8212:8212/tcp  # Port for REST API if REST_API_ENABLED: true
+volumes:
+- container: "./palworld"
+  bind: "!palworld"
+sysctls:
+- net.ipv6.conf.all.disable_ipv6: '0'
+cap_add:
+- NET_ADMIN
 env:
 - name: PUID
   label: PUID
@@ -53,6 +60,3 @@ env:
 - name: ALLOW_CONNECT_PLATFORM
   label: ALLOW_CONNECT_PLATFORM
   default: "Steam"
-volumes:
-- container: "./palworld"
-  bind: "!palworld"
